@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="container">
+			<form id="form">
+				<input
+					id="character"
+					placeholder="Name..."
+					title="Enter the name of the character you want to view"
+				/>
+				<button type="submit">submit</button>
+			</form>
+			<div class="row">
+				<div class="column">
+					<p id="characterpic"></p>
+					<!-- <img src="" id="characterpic" /> -->
+					<img src="" id="elemental" />
+				</div>
+				<div class="column">
+					<h1 id="name"></h1>
+					<p id="desc"></p>
+					<h2>Abilities</h2>
+					<header id="">
+						<p></p>
+					</header>
+					<header id="">
+						<p></p>
+					</header>
+					<header id="">
+						<p></p>
+					</header>
+				</div>
+			</div>
+		</div>
+
+		<script type="module">
+			import { getCharData } from './script.js';
+			const formEl = document.getElementById('form');
+			const nameInp = document.getElementById('character');
+			const nameChar = document.getElementById('name');
+			const charPic = document.getElementById('characterpic');
+			const charElm = document.getElementById('elemental');
+
+			formEl.addEventListener('submit', (e) => {
+				e.preventDefault();
+				const nameIn = nameInp.value;
+
+				getCharData(nameIn)
+					.then((character) => {
+						console.log(character);
+						nameChar.innerHTML = character.name;
+						if (character.vision == 'Geo') {
+							document.getElementById('elemental').src =
+								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+						} else if (character.vision == 'Cryo') {
+							document.getElementById('elemental').src =
+								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+						} else if (character.vision == 'Pyro') {
+							document.getElementById('elemental').src =
+								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+						} else if (character.vision == 'Electro') {
+							document.getElementById('elemental').src =
+								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+						} else if (character.vision == 'Hydro') {
+							document.getElementById('elemental').src =
+								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+						} else if (character.vision == 'Anemo') {
+							document.getElementById('elemental').src =
+								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+						}
+
+						if (character.name.toLowerCase() == 'albedo') {
+							charPic = 'albedo';
+						}
+					})
+					.catch((err) => console.log(err.message));
+			});
+		</script>
+	</body>
+</html>
