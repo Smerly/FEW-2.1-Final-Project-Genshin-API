@@ -29,13 +29,13 @@
 					<h1 id="name"></h1>
 					<p id="desc"></p>
 					<h2>Abilities</h2>
-					<header id="">
+					<header id="norm">
 						<p></p>
 					</header>
-					<header id="">
+					<header id="e">
 						<p></p>
 					</header>
-					<header id="">
+					<header id="q">
 						<p></p>
 					</header>
 				</div>
@@ -49,6 +49,10 @@
 			const nameChar = document.getElementById('name');
 			const charPic = document.getElementById('characterpic');
 			const charElm = document.getElementById('elemental');
+			const description = document.getElementById('desc');
+			const Q = document.getElementById('q');
+			const E = document.getElementById('e');
+			const Normie = document.getElementById('norm');
 
 			formEl.addEventListener('submit', (e) => {
 				e.preventDefault();
@@ -58,28 +62,59 @@
 					.then((character) => {
 						console.log(character);
 						nameChar.innerHTML = character.name;
+						description.innerHTML = character.description;
+						Q.innerHTML = character.skillTalents[2].name;
+						E.innerHTML = character.skillTalents[1].name;
+						Normie.innerHTML = character.skillTalents[0].name;
+
 						if (character.vision == 'Geo') {
 							document.getElementById('elemental').src =
 								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
 						} else if (character.vision == 'Cryo') {
 							document.getElementById('elemental').src =
-								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+								'https://static.wikia.nocookie.net/gensin-impact/images/8/88/Element_Cryo.png/revision/latest/scale-to-width-down/60?cb=20201116063123';
 						} else if (character.vision == 'Pyro') {
 							document.getElementById('elemental').src =
-								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+								'https://static.wikia.nocookie.net/gensin-impact/images/e/e8/Element_Pyro.png/revision/latest/scale-to-width-down/60?cb=20201116063114';
 						} else if (character.vision == 'Electro') {
 							document.getElementById('elemental').src =
-								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+								'https://static.wikia.nocookie.net/gensin-impact/images/7/73/Element_Electro.png/revision/latest/scale-to-width-down/60?cb=20201116063049';
 						} else if (character.vision == 'Hydro') {
 							document.getElementById('elemental').src =
-								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+								'https://static.wikia.nocookie.net/gensin-impact/images/3/35/Element_Hydro.png/revision/latest/scale-to-width-down/60?cb=20201116063105';
 						} else if (character.vision == 'Anemo') {
 							document.getElementById('elemental').src =
-								'https://static.wikia.nocookie.net/gensin-impact/images/4/4a/Element_Geo.png/revision/latest/top-crop/width/360/height/360?cb=20201116063036';
+								'https://static.wikia.nocookie.net/gensin-impact/images/a/a4/Element_Anemo.png/revision/latest/scale-to-width-down/60?cb=20201116063017';
 						}
 
 						if (character.name.toLowerCase() == 'albedo') {
-							charPic = 'albedo';
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
+						} else if (character.name.toLowerCase() == '') {
+							document.getElementById('characterpic').src = '';
 						}
 					})
 					.catch((err) => console.log(err.message));
